@@ -13,7 +13,8 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val API_BASE_URL = "https://raw.githubusercontent.com/"
+const val API_BASE_URL = "https://swapi.co/api/"
+const val HEADER_CONTENT_TYPE = "Content-type: application/json"
 
 val appModules = module {
 

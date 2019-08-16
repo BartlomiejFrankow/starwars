@@ -14,27 +14,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainVM>(), MainNavigator 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         vm.setNav(this)
-//        setContentView(R.layout.activity_main)
-
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl("https://raw.githubusercontent.com/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//            .build()
-//
-//        val apiMovies = retrofit.create(Api::class.java)
-
-//        apiMovies.getMovies()
-//            .subscribeOn(Schedulers.io())
-//            .unsubscribeOn(Schedulers.computation())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({ Log.d("RESULT:", "${it.data}") },
-//                {
-//                    Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
-//                })
 
         setUpFragments()
-
     }
 
     private fun setUpFragments() {

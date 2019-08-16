@@ -1,8 +1,9 @@
 package com.example.movies.home
 
-import android.util.Log
 import android.widget.Toast
+import androidx.databinding.ObservableField
 import com.example.movies.api.Movie
+import com.example.movies.api.MovieResponse
 import com.example.movies.api.MoviesRepository
 import com.example.movies.application.App
 import com.example.movies.base.BaseVM
@@ -16,6 +17,8 @@ class HomeVM(val moviesRepository: MoviesRepository) : BaseVM<HomeNavigator>() {
 
     var adapter = MovieAdapter(EqualsDiffUtil(), onItemClick = ::onMovieClicked)
 
+    var showProgressBar = ObservableField(true)
+
     private fun onMovieClicked(movie: Movie) {
     }
 
@@ -23,9 +26,18 @@ class HomeVM(val moviesRepository: MoviesRepository) : BaseVM<HomeNavigator>() {
         subscription = moviesRepository.getMovies()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { adapter.submitList(it.data.toMutableList()) },
-                { Toast.makeText(App.appCtx(), it.message, Toast.LENGTH_SHORT).show() }
+                { getMoviesSuccess(it) },
+                { getMoviesError(it) }
             )
+    }
+
+    private fun getMoviesError(it: Throwable) {
+        Toast.makeText(App.appCtx(), it.message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun getMoviesSuccess(it: MovieResponse) {
+        showProgressBar.set(false)
+        adapter.submitList(it.results.toMutableList())
     }
 
     override fun onCleared() {
