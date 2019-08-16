@@ -26,11 +26,11 @@ class MovieAdapter(diffCallback: DiffUtil.ItemCallback<Movie>, val onItemClick: 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(position)
 
-        if (adapterItems[position].poster != "") loadPicture(
-            adapterItems[position].poster!!,
-            holder.view.ivMoviePicture,
-            holder.view.pbMovie
-        )
+//        if (adapterItems[position].poster != "") loadPicture(
+//            adapterItems[position].poster!!,
+//            holder.view.ivMoviePicture,
+//            holder.view.pbMovie
+//        )
 
     }
 
@@ -41,17 +41,17 @@ class MovieAdapter(diffCallback: DiffUtil.ItemCallback<Movie>, val onItemClick: 
         super.submitList(list)
     }
 
-    private fun loadPicture(picture: String, imageView: ImageView, progressBar: ProgressBar) {
-        Picasso.get().load(picture).into(imageView, object : Callback {
-            override fun onError(e: Exception?) {
-                progressBar.visibility = View.GONE
-            }
-
-            override fun onSuccess() {
-                progressBar.visibility = View.GONE
-            }
-        })
-    }
+//    private fun loadPicture(picture: String, imageView: ImageView, progressBar: ProgressBar) {
+//        Picasso.get().load(picture).into(imageView, object : Callback {
+//            override fun onError(e: Exception?) {
+//                progressBar.visibility = View.GONE
+//            }
+//
+//            override fun onSuccess() {
+//                progressBar.visibility = View.GONE
+//            }
+//        })
+//    }
 
     inner class MovieViewHolder(val view: ItemMovieBinding) : RecyclerView.ViewHolder(view.root) {
         private lateinit var movie: Movie
