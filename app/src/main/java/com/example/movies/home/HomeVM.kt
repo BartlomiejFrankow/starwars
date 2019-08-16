@@ -17,7 +17,6 @@ class HomeVM(val moviesRepository: MoviesRepository) : BaseVM<HomeNavigator>() {
     var adapter = MovieAdapter(EqualsDiffUtil(), onItemClick = ::onMovieClicked)
 
     private fun onMovieClicked(movie: Movie) {
-
     }
 
     fun getMovies() {
