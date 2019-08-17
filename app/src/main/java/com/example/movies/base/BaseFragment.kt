@@ -14,7 +14,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import com.example.movies.application.App
 
-abstract class BaseFragment<T : ViewDataBinding, out V : BaseVM<*>> : Fragment(), BaseNavigator {
+abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fragment(), BaseNavigator {
 
     abstract val vm: V
     protected open fun getBindingVariable(): Int = BR.vm
