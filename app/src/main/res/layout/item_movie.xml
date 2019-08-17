@@ -8,7 +8,7 @@
 
         <variable
                 name="obj"
-                type="com.example.movies.api.Movie" />
+                type="com.example.movies.api.entities.Movie" />
     </data>
 
     <LinearLayout

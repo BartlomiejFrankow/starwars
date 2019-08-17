@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.movies.api.Movie
+import com.example.movies.api.entities.Movie
 import com.example.movies.databinding.ItemMovieBinding
 import kotlinx.android.synthetic.main.item_movie.view.*
 
