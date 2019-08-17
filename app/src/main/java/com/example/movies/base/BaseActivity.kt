@@ -17,7 +17,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseActivity<T : ViewDataBinding, out V : BaseVM<*>> : AppCompatActivity(), CoroutineScope, BaseNavigator {
+abstract class BaseActivity<T : ViewDataBinding, out V : BaseViewModel<*>> : AppCompatActivity(), CoroutineScope, BaseNavigator {
 
     abstract val vm: V
     protected open fun getBindingVariable(): Int = BR.vm

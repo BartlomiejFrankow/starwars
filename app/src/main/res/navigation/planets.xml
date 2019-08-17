@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/planetsFragment"
+        app:startDestination="@id/planetsFragment"
+        tools:ignore="UnusedNavigation">
+
+    <fragment
+            android:id="@+id/planetsFragment"
+            android:name="com.example.movies.ui.planets.PlanetsFragment"
+            android:label="PlanetsFragment"
+            tools:layout="@layout/fragment_planets" />
+
+</navigation>

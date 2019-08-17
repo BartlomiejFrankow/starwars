@@ -2,12 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:ignore="UnusedNavigation"
         android:id="@+id/nav_graph_main"
-        app:startDestination="@+id/homeFragment">
+        app:startDestination="@+id/moviesFragment"
+        tools:ignore="UnusedNavigation">
 
-    <fragment
-            android:id="@+id/homeFragment"
-            android:name="com.example.movies.home.HomeFragment"
-            android:label="HomeFragment" />
+    <include app:graph="@navigation/movies" />
+    <include app:graph="@navigation/characters" />
+    <include app:graph="@navigation/vehicles" />
+    <include app:graph="@navigation/planets" />
+
 </navigation>

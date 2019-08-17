@@ -1,17 +1,12 @@
-package com.example.movies.home
+package com.example.movies.ui.movies
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movies.api.Movie
 import com.example.movies.databinding.ItemMovieBinding
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MovieAdapter(diffCallback: DiffUtil.ItemCallback<Movie>, val onItemClick: (movie: Movie) -> Unit) :

@@ -1,10 +1,13 @@
 package com.example.movies.module
 
-import com.example.movies.MainVM
+import com.example.movies.ui.MainVM
 import com.example.movies.api.Api
 import com.example.movies.api.MoviesRepository
 import com.example.movies.api.MoviesRepositoryImpl
-import com.example.movies.home.HomeVM
+import com.example.movies.ui.characters.CharactersViewModel
+import com.example.movies.ui.movies.MoviesViewModel
+import com.example.movies.ui.planets.PlanetsViewModel
+import com.example.movies.ui.vehicles.VehiclesViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
@@ -25,7 +28,10 @@ val appModules = module {
 
     // Specific viewModel pattern to tell Koin how to build MainVM
     viewModel { MainVM() }
-    viewModel { HomeVM(moviesRepository = get()) }
+    viewModel { MoviesViewModel(moviesRepository = get()) }
+    viewModel { CharactersViewModel() }
+    viewModel { VehiclesViewModel() }
+    viewModel { PlanetsViewModel() }
 
 }
 

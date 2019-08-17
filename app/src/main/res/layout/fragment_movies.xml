@@ -8,7 +8,7 @@
 
         <variable
                 name="vm"
-                type="com.example.movies.home.HomeVM" />
+                type="com.example.movies.ui.movies.MoviesViewModel" />
 
         <import type="android.view.View" />
     </data>
