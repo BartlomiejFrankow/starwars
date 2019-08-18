@@ -1,4 +1,4 @@
-package com.example.movies.api
+package com.example.movies.api.entities
 
 data class MovieResponse(
     val count: Int,

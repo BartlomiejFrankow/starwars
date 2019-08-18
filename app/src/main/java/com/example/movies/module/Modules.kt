@@ -2,8 +2,9 @@ package com.example.movies.module
 
 import com.example.movies.ui.MainVM
 import com.example.movies.api.Api
-import com.example.movies.api.MoviesRepository
-import com.example.movies.api.MoviesRepositoryImpl
+import com.example.movies.api.repositories.MoviesRepository
+import com.example.movies.api.repositories.MoviesRepositoryImpl
+import com.example.movies.application.App
 import com.example.movies.ui.characters.CharactersViewModel
 import com.example.movies.ui.movies.MoviesViewModel
 import com.example.movies.ui.planets.PlanetsViewModel
@@ -23,12 +24,14 @@ val appModules = module {
 
     single { createWebService<Api>() }
 
+    factory { App.getMoviesListObjDao() }
+
     // Tells Koin how to create an instance of repository
     factory<MoviesRepository> { MoviesRepositoryImpl() }
 
     // Specific viewModel pattern to tell Koin how to build MainVM
-    viewModel { MainVM() }
-    viewModel { MoviesViewModel(moviesRepository = get()) }
+    viewModel { MainVM(starWarsDao = get()) }
+    viewModel { MoviesViewModel(moviesRepository = get(), starWarsDao = get()) }
     viewModel { CharactersViewModel() }
     viewModel { VehiclesViewModel() }
     viewModel { PlanetsViewModel() }

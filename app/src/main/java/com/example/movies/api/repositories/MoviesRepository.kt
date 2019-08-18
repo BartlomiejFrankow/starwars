@@ -1,5 +1,7 @@
-package com.example.movies.api
+package com.example.movies.api.repositories
 
+import com.example.movies.api.Api
+import com.example.movies.api.entities.MovieResponse
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import org.koin.core.KoinComponent
