@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
 import com.example.movies.application.App
+import com.example.movies.ui.MainActivity
 
 abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fragment(), BaseNavigator {
 
@@ -28,6 +29,15 @@ abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fra
         viewDataBinding.setVariable(getBindingVariable(), vm)
         viewDataBinding.executePendingBindings()
         return viewDataBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setBottomNavigationVisibility()
+    }
+
+    fun setBottomNavigationVisibility(isVisible: Boolean? = true) {
+        getParent<MainActivity>()?.vm?.isBottomNavigationVisible?.set(isVisible)
     }
 
     fun navigate(actionId: NavDirections) {

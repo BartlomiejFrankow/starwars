@@ -10,6 +10,23 @@
             android:id="@+id/moviesFragment"
             android:name="com.example.movies.ui.movies.MoviesFragment"
             android:label="HomeFragment"
-            tools:layout="@layout/fragment_movies" />
+            tools:layout="@layout/fragment_movies" >
+        <action
+                android:id="@+id/action_moviesFragment_to_movieDetailsFragment"
+                app:destination="@id/movieDetailsFragment"
+                app:enterAnim="@anim/trans_in"
+                app:exitAnim="@anim/trans_out"
+                app:popEnterAnim="@anim/trans_in"
+                app:popExitAnim="@anim/trans_out"/>
+    </fragment>
+    <fragment
+            android:id="@+id/movieDetailsFragment"
+            android:name="com.example.movies.ui.movies.details.MovieDetailsFragment"
+            android:label="MovieDetailsFragment"
+            tools:layout="@layout/fragment_movie_details">
+        <argument
+                android:name="ARG_MOVIE_OBJ"
+                app:argType="com.example.movies.api.entities.Movie"/>
+    </fragment>
 
 </navigation>

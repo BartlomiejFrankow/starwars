@@ -21,6 +21,7 @@ class MoviesViewModel(val moviesRepository: MoviesRepository, val starWarsDao: S
     private val moviesFromDb = starWarsDao.getMovieObj()
 
     private fun onMovieClicked(movie: Movie) {
+        getNav().openDetails(movie)
     }
 
     fun getMovies() {

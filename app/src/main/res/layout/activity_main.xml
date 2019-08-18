@@ -9,6 +9,9 @@
         <variable
                 name="vm"
                 type="com.example.movies.ui.MainVM" />
+
+        <import type="android.view.View" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,6 +32,7 @@
                 android:id="@+id/bottomNavigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="@{vm.isBottomNavigationVisible ? View.VISIBLE : View.GONE}"
                 android:shadowColor="@color/creme"
                 app:itemIconTint="@color/bottom_nav_icon_selector"
                 app:itemTextColor="@color/bottom_nav_text_selector"

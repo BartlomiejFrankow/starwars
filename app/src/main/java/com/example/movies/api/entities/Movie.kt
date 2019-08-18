@@ -1,5 +1,9 @@
 package com.example.movies.api.entities
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Movie(
     val title: String,
     val episode_id: Int,
@@ -15,4 +19,4 @@ data class Movie(
     val created: String,
     val edited: String,
     val url: String
-)
+) : Parcelable

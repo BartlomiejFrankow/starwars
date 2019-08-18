@@ -7,6 +7,7 @@ import com.example.movies.api.repositories.MoviesRepositoryImpl
 import com.example.movies.application.App
 import com.example.movies.ui.characters.CharactersViewModel
 import com.example.movies.ui.movies.MoviesViewModel
+import com.example.movies.ui.movies.details.MovieDetailsViewModel
 import com.example.movies.ui.planets.PlanetsViewModel
 import com.example.movies.ui.vehicles.VehiclesViewModel
 import okhttp3.OkHttpClient
@@ -35,6 +36,7 @@ val appModules = module {
     viewModel { CharactersViewModel() }
     viewModel { VehiclesViewModel() }
     viewModel { PlanetsViewModel() }
+    viewModel { MovieDetailsViewModel() }
 
 }
 
