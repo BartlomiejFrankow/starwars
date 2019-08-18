@@ -6,7 +6,6 @@ import com.example.movies.R
 import com.example.movies.api.entities.Movie
 import com.example.movies.base.BaseFragment
 import com.example.movies.databinding.FragmentMoviesBinding
-import com.example.movies.utils.AppConstans
 import kotlinx.android.synthetic.main.fragment_movies.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -20,7 +19,13 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>(), M
         vm.setNav(this)
 
         vm.getMovies()
+        initToolbar()
         rvMoviesIni()
+    }
+
+    private fun initToolbar() {
+        hideToolbarLeftIcon()
+        setToolbarTitle(getString(R.string.movies))
     }
 
     private fun rvMoviesIni() {
@@ -28,9 +33,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>(), M
     }
 
     override fun openDetails(movie: Movie) {
-        val arguments = Bundle()
-        arguments.putParcelable(AppConstans.ARG_MOVIE_OBJ, movie)
-        navigateById(R.id.action_moviesFragment_to_movieDetailsFragment, arguments)
+        navigate(MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsFragment(movie))
     }
 
 }

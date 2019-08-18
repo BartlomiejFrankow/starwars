@@ -15,5 +15,13 @@ class CharactersFragment: BaseFragment<FragmentCharactersBinding, CharactersView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm.setNav(this)
+
+        initToolbar()
     }
+
+    private fun initToolbar() {
+        hideToolbarLeftIcon()
+        setToolbarTitle(getString(R.string.characters))
+    }
+
 }

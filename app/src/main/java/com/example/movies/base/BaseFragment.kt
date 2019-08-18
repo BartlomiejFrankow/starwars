@@ -53,7 +53,28 @@ abstract class BaseFragment<T : ViewDataBinding, out V : BaseViewModel<*>> : Fra
     inline fun <reified T : BaseActivity<*, *>> getParent(): T? = activity as? T
 
     override fun showToast(message: String) {
-            toast(message)
+        toast(message)
+    }
+
+    //Toolbar
+    fun setToolbarLeftIcon(drawable: Int) {
+        (activity as MainActivity).setToolbarLeftIcon(drawable)
+    }
+
+    fun hideToolbarLeftIcon() {
+        (activity as MainActivity).hideToolbarLeftIcon()
+    }
+
+    fun setToolbarRightIcon(drawable: Int) {
+        (activity as MainActivity).setToolbarRightIcon(drawable)
+    }
+
+    fun hideToolbarRightIcon() {
+        (activity as MainActivity).hideToolbarRightIcon()
+    }
+
+    fun setToolbarTitle(title: String) {
+        (activity as MainActivity).setToolbarTitle(title)
     }
 
 }

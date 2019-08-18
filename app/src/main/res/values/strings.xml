@@ -4,4 +4,5 @@
     <string name="characters">Characters</string>
     <string name="vehicles">Vehicles</string>
     <string name="planets">Planets</string>
+    <string name="movie_details">Movie Details</string>
 </resources>

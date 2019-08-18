@@ -20,9 +20,15 @@ class MovieDetailsFragment: BaseFragment<FragmentMovieDetailsBinding, MovieDetai
         vm.setNav(this)
 
         setBottomNavigationVisibility(false)
-
         arguments?.getParcelable<Movie>(AppConstans.ARG_MOVIE_OBJ)?.let { vm.movie = it }
-
-        toast("${vm.movie?.title}")
+        iniToolbar()
+        vm.setDataToView()
     }
+
+    private fun iniToolbar(){
+        hideToolbarRightIcon()
+        setToolbarLeftIcon(R.drawable.ic_back_arrow)
+        setToolbarTitle(vm.movie?.title ?: getString(R.string.movie_details))
+    }
+
 }

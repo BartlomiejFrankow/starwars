@@ -15,5 +15,12 @@ class PlanetsFragment: BaseFragment<FragmentPlanetsBinding, PlanetsViewModel>(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm.setNav(this)
+
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        hideToolbarLeftIcon()
+        setToolbarTitle(getString(R.string.planets))
     }
 }
