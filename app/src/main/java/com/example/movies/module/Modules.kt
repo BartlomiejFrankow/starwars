@@ -30,8 +30,8 @@ val appModules = module {
     factory<MoviesRepository> { MoviesRepositoryImpl() }
 
     // Specific viewModel pattern to tell Koin how to build MainVM
-    viewModel { MainVM(starWarsObjDao = get()) }
-    viewModel { MoviesViewModel(moviesRepository = get(), starWarsObjDao = get()) }
+    viewModel { MainVM(starWarsDao = get()) }
+    viewModel { MoviesViewModel(moviesRepository = get(), starWarsDao = get()) }
     viewModel { CharactersViewModel() }
     viewModel { VehiclesViewModel() }
     viewModel { PlanetsViewModel() }

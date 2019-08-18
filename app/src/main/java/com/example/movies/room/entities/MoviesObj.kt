@@ -11,16 +11,20 @@ data class MoviesObj(
 )
 
 @Dao
-interface StarWarsObjDao {
+interface StarWarsDao {
 
     //Movies
     @Query("SELECT * FROM moviesobj")
-    fun getAllMovies(): Array<MoviesObj>
+    fun getMovieObj(): MoviesObj?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsetMovies(moviesObj: MoviesObj) //insert new obj with id = 1 or delete existing obj and insert new one with id = 1
+    fun upsetMovieObj(moviesObj: MoviesObj) //insert new obj with id = 1 or delete existing obj and insert new one with id = 1
 
     @Query("DELETE FROM moviesobj WHERE id = 1")
-    fun deleteMovieFromDb()
+    fun deleteMovieObj()
+
+    //Characters
+    //Vehicles
+    //Planets
 
 }

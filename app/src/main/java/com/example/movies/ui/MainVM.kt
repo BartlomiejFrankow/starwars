@@ -2,13 +2,13 @@ package com.example.movies.ui
 
 import androidx.lifecycle.LifecycleOwner
 import com.example.movies.base.BaseViewModel
-import com.example.movies.room.entities.StarWarsObjDao
+import com.example.movies.room.entities.StarWarsDao
 
-class MainVM(val starWarsObjDao: StarWarsObjDao) : BaseViewModel<MainNavigator>() {
+class MainVM(val starWarsDao: StarWarsDao) : BaseViewModel<MainNavigator>() {
 
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
-        starWarsObjDao.deleteMovieFromDb()
+        starWarsDao.deleteMovieObj()
     }
 
 }

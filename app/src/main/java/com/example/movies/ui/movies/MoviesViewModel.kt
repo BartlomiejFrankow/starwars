@@ -7,31 +7,31 @@ import com.example.movies.api.entities.MovieResponse
 import com.example.movies.api.repositories.MoviesRepository
 import com.example.movies.application.App
 import com.example.movies.base.BaseViewModel
-import com.example.movies.room.entities.StarWarsObjDao
 import com.example.movies.room.entities.MoviesObj
+import com.example.movies.room.entities.StarWarsDao
 import com.example.movies.utils.EqualsDiffUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 
-class MoviesViewModel(val moviesRepository: MoviesRepository, val starWarsObjDao: StarWarsObjDao) : BaseViewModel<MoviesNavigator>() {
+class MoviesViewModel(val moviesRepository: MoviesRepository, val starWarsDao: StarWarsDao) : BaseViewModel<MoviesNavigator>() {
 
     private var subscription: Disposable? = null
     var adapter = MovieAdapter(EqualsDiffUtil(), onItemClick = ::onMovieClicked)
     var showProgressBar = ObservableField(true)
-    private val moviesFromDb = starWarsObjDao.getAllMovies()
+    private val moviesFromDb = starWarsDao.getMovieObj()
 
     private fun onMovieClicked(movie: Movie) {
     }
 
     fun getMovies() {
-        if (moviesFromDb.isEmpty()) {
+        if (moviesFromDb == null) {
             subscription = moviesRepository.getMovies()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { getMoviesSuccess(it) },
                     { getMoviesError(it) }
                 )
-        } else adapter.submitList(moviesFromDb[0].movies.results.toMutableList())
+        } else adapter.submitList(moviesFromDb.movies.results.toMutableList())
     }
 
     private fun getMoviesError(it: Throwable) {
@@ -41,7 +41,7 @@ class MoviesViewModel(val moviesRepository: MoviesRepository, val starWarsObjDao
 
     private fun getMoviesSuccess(it: MovieResponse) {
         adapter.submitList(it.results.toMutableList())
-        starWarsObjDao.upsetMovies(MoviesObj(movies = it))
+        starWarsDao.upsetMovieObj(MoviesObj(movies = it))
         showProgressBar.set(false)
     }
 

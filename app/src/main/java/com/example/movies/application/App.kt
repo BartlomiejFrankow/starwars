@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.movies.module.appModules
 import com.example.movies.room.AppDatabase
-import com.example.movies.room.entities.StarWarsObjDao
+import com.example.movies.room.entities.StarWarsDao
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -40,7 +40,7 @@ class App : Application() {
             return database
         }
 
-        fun getMoviesListObjDao(): StarWarsObjDao = database.moviesListObjDao()
+        fun getMoviesListObjDao(): StarWarsDao = database.moviesListObjDao()
 
     }
 
