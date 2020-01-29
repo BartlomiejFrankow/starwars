@@ -9,8 +9,8 @@
     </style>
 
     <style name="card_view" parent="Widget.MaterialComponents.CardView" >
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">300dp</item>
         <item name="cardBackgroundColor">@color/creme</item>
     </style>
 
