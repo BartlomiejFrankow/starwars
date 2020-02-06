@@ -9,6 +9,7 @@ import com.example.movies.ui.characters.CharactersViewModel
 import com.example.movies.ui.movies.MoviesViewModel
 import com.example.movies.ui.planets.PlanetsViewModel
 import com.example.movies.ui.vehicles.VehiclesViewModel
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.viewmodel.dsl.viewModel
@@ -46,7 +47,7 @@ inline fun <reified T> createWebService(): T {
     val retrofit = Retrofit.Builder()
         .baseUrl(API_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .client(client.build())
         .build()
     return retrofit.create(T::class.java)
